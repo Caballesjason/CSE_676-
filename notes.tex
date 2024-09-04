@@ -1,0 +1,180 @@
+% ----- META DATA ----
+% Declare document type
+\documentclass[12pt]{article}
+% Set paper marign
+\usepackage[letterpaper, portrait, margin=0.5in]{geometry}
+% Set font to times new roman
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+% set font for section titles
+\usepackage{sectsty}
+\sectionfont{\fontsize{16}{12}\selectfont}
+\subsectionfont{\fontsize{14}{12}\selectfont}
+\subsubsectionfont{\fontsize{14}{12}\selectfont}
+% Adjust paragraph spacing and indentation
+\usepackage[skip=6pt, indent=0pt]{parskip}
+% Set spacing between sections
+\usepackage{setspace}
+\singlespacing
+% Used to add image to title screen
+\usepackage{graphicx}
+
+% Set path to images directory
+\graphicspath{{images/}} 
+% Used for multiple line line comments
+\usepackage{comment}
+% Used to reduce spacing between text and section headers
+\usepackage{titlesec}
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% Used for table of contents
+\usepackage{blindtext}
+% Used for writing text within math equations
+\usepackage{amsmath}
+% Used for adding multiline cells in tables
+\usepackage{makecell}
+% Used to write algorithms
+\usepackage{algpseudocode}
+% Used to write python code
+\usepackage{pythonhighlight}
+
+% ---- TITLE PAGE ----
+\title{
+  CSE 676 - Introduction to Deep Learning
+}
+\author{
+  Jason Caballes
+}
+
+% ---- START OF DOCUMENT ----
+\begin{document}
+% Create title page
+% \maketitle
+% \newpage
+
+% Adding page numbers
+\pagenumbering{arabic}
+
+
+% ---- TABLE OF CONTENT ----
+\begin{comment}
+\tableofcontents
+\newpage
+\end{comment}
+
+% ---- SLIDE DECK 1 ----
+% ---- COURSE OVERVIEW ----
+\section*{Course Overview}
+\subsubsection*{Course Logistics}
+\subsubsection*{Course Outline}
+\subsubsection*{Grading Rubric}
+\subsubsection*{Machine Learning Review}
+\subsubsection*{Artificial Intelligence}
+
+% ---- ARTIFICIAL INTELLIGENCE OVERVIEW ----
+\section{Artifical Intelligence Overview}
+\subsubsection{AI Paradox}
+Artifical Narrow Intelligence (ANI) vs Artificial General Intelligence (AGI)
+
+\begin{itemize}
+  \item Problems difficult for humans are easy for AI
+  \item Problems easy for humans are difficult for AI
+\end{itemize}
+
+\subsection{Knowledge-Based AI}
+\begin{itemize}
+  \item AI that is provided explicity rules
+  \item People struggle to formalize these rules
+\end{itemize}
+
+\subsubsection{Machine Learing Approach}
+\begin{itemize}
+  \item Allows computers to learn from experience
+  \item Learns to map features to outputs
+\end{itemize}
+
+\subsubsection{Supervised vs Unsupervised Learning}
+
+\begin{itemize}
+  \item Dataset: Collection of unlabeled examples $\{x_{i}\}^{N}_{i=1}$
+  \item Goal:  Create a model tha ttakes $x$ as input and either transform it into another vector or into a value that can be used to solve a practical problem
+\end{itemize}
+
+\textbf{Note}:  Training a pretrained model for with a training and test set is considered semi-supervised learning
+
+\subsubsection{Reinforcement Learning}
+\textbf{Input}: State-action pairs \\
+\textbf{Goal}: Learn a good sequence of decisions to maximize a reward
+
+\section{Preliminaries}
+\subsubsection{Data Manipulation}
+\begin{itemize}
+  \item A tensor represents a (possibly multi-dimensional) array of numerical values
+  \begin{itemize}
+    \item With one axis, a tensor is called a \textit{vector}
+    \item With two axes, a tensor is called a \textit{matrix}
+    \item With $n > 2$ axes, we just call it a tensor
+  \end{itemize}
+\end{itemize}
+
+\begin{python}
+# Library import
+import torch
+# Assign x to an array with 12 floats
+x = torch.arange([12, dtype=torch.float])
+\end{python}
+
+\subsubsection{Linear Algebra}
+\subsubsection{Calculus}
+\subsubsection{Automatic Differentiation}
+\subsubsection{Probability and Statistics}
+
+
+% ---- Linear Neural Networks for Regression ----
+\section{Linear Neural Networks for Regression}
+
+% ---- SLIDE DECK 2 ----
+% ---- Multiple Layer Perceptron (MLP) ----
+\section{Multiple Layer Perceptron (MLP)}
+
+You must have a general understanding of the following ML algorithms
+
+\begin{itemize}
+  \item Linear Regression
+  \item KNN
+  \item K-means Clustering
+  \item Linear SVM (\textbf{Important for Interviews})
+  \item SVM with gaussian kernel for non-linear SVM
+  \item Naive Bayes Classifier
+  \item Principal Component Analysis (PCA)
+\end{itemize}
+
+You must understand the following performance metrics
+
+\begin{itemize}
+  \item ROC
+  \item AUC
+  \item F1 Score
+  \item Precision
+  \item Recall
+  \item Accuracy
+\end{itemize}
+
+% ----  ----
+\section{}
+
+\begin{comment}
+% ---- REFERENCES ----
+All references are in MLA 9TH Gen
+\newpage
+\begin{thebibliography}{widest entry}
+    % \bibitem{O’Halloran} O’Halloran, Sharyn, et al. “Data Science and Political Economy: Application to Financial Regulatory Structure.” RSF : Russell Sage Foundation Journal of the Social Sciences, vol. 2, no. 7, 2016, pp. 87–109, https://doi.org/10.7758/rsf.2016.2.7.06.
+    \end{thebibliography}
+\end{comment}
+
+% ---- END OF DOCUMENT ----
+\end{document}
+
+% Must figure out how to get the max time and date
+% https://data.cityofnewyork.us/resource/i4gi-tjb9.json?$query=SELECT speed, travel_time, link_name, borough, encoded_poly_line, data_as_of WHERE status='0' ORDER BY :id LIMIT 100
