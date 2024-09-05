@@ -25,13 +25,14 @@
 \usepackage{comment}
 % Used to reduce spacing between text and section headers
 \usepackage{titlesec}
-\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 % Used for table of contents
 \usepackage{blindtext}
-% Used for writing text within math equations
+% Used for writing math equations
 \usepackage{amsmath}
+\usepackage{amssymb}
 % Used for adding multiline cells in tables
 \usepackage{makecell}
 % Used to write algorithms
@@ -61,79 +62,640 @@
 \begin{comment}
 \tableofcontents
 \newpage
-\end{comment}
 
 % ---- SLIDE DECK 1 ----
 % ---- COURSE OVERVIEW ----
 \section*{Course Overview}
 \subsubsection*{Course Logistics}
+\textbf{Professor Office Hours:} Fridays at 15:00 - 16:00
+\textbf{Grading Scheme:}
+
+\begin{itemize}
+  \item \textbf{Attendance:} 10\%
+  \item \textbf{Programming Assignments (2):} 30\%
+  \item \textbf{Midterm:} Multiple Choice and 30\%
+  \item \textbf{Final:} Multiple Choice 30\%
+\end{itemize}
+
+\textbf{Grading Rubric:} This course follows absolute grading
+
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{grading_rubric.png}
+\end{figure}
+
 \subsubsection*{Course Outline}
-\subsubsection*{Grading Rubric}
-\subsubsection*{Machine Learning Review}
-\subsubsection*{Artificial Intelligence}
+\begin{itemize}
+  \item \textbf{Week 1 - 2:} Math, Machine Learning, and Linear Regression Review
+  \item \textbf{Week 3 - 4:} Linear Regression, Softmax Regression and MLP Review
+  \item\textbf{ Week 5 - 6:} CNN and \textit{Efficient-Net} Paper Reading
+  \item \textbf{Week 7:} Midterm on weeks 1 - 4
+  \item \textbf{Week 8 - 9:} Recurrent Neural Networks and Paper Read on \textit{Transformer}
+  \item \textbf{Week 10 - 13:} Graph Neural Network Paper Read
+  \item \textbf{Week 14 - 15:} Catch up Time on the Material if needed and final review
+\end{itemize}
+
+\newpage
+\subsubsection*{Machine Learning Map}
+Below is a map of various machine learning algorithms
+
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{sk_learn_algo_cheat_sheet.png}
+\end{figure}
+
 
 % ---- ARTIFICIAL INTELLIGENCE OVERVIEW ----
 \section{Artifical Intelligence Overview}
-\subsubsection{AI Paradox}
-Artifical Narrow Intelligence (ANI) vs Artificial General Intelligence (AGI)
+Artificial Intelligence (AI) is used in every aspect of our lives!
 
-\begin{itemize}
-  \item Problems difficult for humans are easy for AI
-  \item Problems easy for humans are difficult for AI
-\end{itemize}
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.65\textwidth]{ml_in_our_lives.png}
+\end{figure}
 
+% -- AI Paradox and types of AI --
+\subsection{AI Paradox and types of AI}
+The \textbf{AI Paradox} states that problems that are difficult for humans are easy for AI, while problems that are easy for AI, are difficult for humans. For example, problems that are require emotions and morals are easy for humans and hard for AI.  Any problems that require a lot of calculations are easy for AI, but hard for humans.
+
+There are two types of AI.  \textbf{Artifical Narrow Intelligence (ANI)} is an AI that is exceptionally good at handling one specific task.   \textbf{Artificial General Intelligence (AGI)} is an AI that is better at understanding more types of problems, but less sophisticated when solving them.
+
+The following is a graph contrasting ANI and AGI
+
+% \newpage
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{agi_vs_ani.png}
+\end{figure}
+
+AI can be broken out to handle a variety of tasks.  It can mimic human senses such as sight, comprehension, and decision making.
+
+Below is a graph showing how AI is used in a variety of tasks
+
+% \newpage
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.55\textwidth]{ai_use_cases.png}
+\end{figure}
+
+
+% -- Knowledge-Based AI --
 \subsection{Knowledge-Based AI}
-\begin{itemize}
-  \item AI that is provided explicity rules
-  \item People struggle to formalize these rules
-\end{itemize}
+Another approach to AI is \textbf{Knowledge-Based AI}.  Rather than using statistical methods to capture trends can create behavior, developers would explicitly define rules that the AI must follow.  This became an issue because developers struggled to formalize rules with enough complexity handle situations. For example, the \textit{Viola Jones Face Detection Algorithm} uses rule-based methods for facial recognition.
 
-\subsubsection{Machine Learing Approach}
-\begin{itemize}
-  \item Allows computers to learn from experience
-  \item Learns to map features to outputs
-\end{itemize}
+\newpage
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{knowledge_based_ai.png}
+\end{figure}
 
-\subsubsection{Supervised vs Unsupervised Learning}
+% -- Machine Learing Approach --
+\subsection{Machine Learing Approach}
+The machine learning approach to AI allows computers to learn from experiences (training data). Computers will determine what features are important and how to map the features to an output.  For example we can train a Convoluional Neural Network (CNN) detect faces in an image.
 
-\begin{itemize}
-  \item Dataset: Collection of unlabeled examples $\{x_{i}\}^{N}_{i=1}$
-  \item Goal:  Create a model tha ttakes $x$ as input and either transform it into another vector or into a value that can be used to solve a practical problem
-\end{itemize}
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{ml_apprach_cnn_example.png}
+\end{figure}
+
+
+% -- Machine Learing Pipeline --
+\subsection{Machine Learing Pipeline}
+The machine learning (Or Data Science) pipeline is a general flow of tasks that machine learning engineers follow when creating an AI product.  The first step is to extract data and do some Exploratory Data Analysis (EDA).  The second step is to apply feature engineering to determine what features are important and what are not useful.  Afterward, engineers can begin training a model.  Then the model must be evaluated and validated.  Finally, the model must be managed and deployed!
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{ml_pipeline.png}
+\end{figure}
+
+% -- Supervised, Unsupervised and Semi-Supervised Learning --
+\subsection{Supervised, Unsupervised and Semi-Supervised Learning}
+\textbf{Supervised Learning} is a when you train a model using a data set with a response.  Given a set of examples $\{x_{i}\}^{N}_{i=1}$, the aim for supervised learning is to produce a model that takes an $x$ as an input to predict a response $\hat{y}$
+
+\newpage
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{supervised_learning.png}
+\end{figure}
+
+\textbf{Unsupervised Learning} is when you have a dataset containing no response variable.  The aim is to create a model that takes the examples $x$ as an input and either transform it into another vector or value that can be used to solve a practical problem such as data visualization or clustering examples into groups.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{unsupervised_learning.png}
+\end{figure}
+
+\textbf{Semi-Supervised Learning} is a combination of supervised and unsupervised learning.  Given a dataset of of examples with and without a response variable, the aim is to use the examples with no response variable  to create a learning algorithm to produce a better model with the examples with response variables.
 
 \textbf{Note}:  Training a pretrained model for with a training and test set is considered semi-supervised learning
 
-\subsubsection{Reinforcement Learning}
-\textbf{Input}: State-action pairs \\
-\textbf{Goal}: Learn a good sequence of decisions to maximize a reward
+\newpage
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{semisupervised_learning.png}
+\end{figure}
 
+% -- Reinforcement Learning --
+\subsection{Reinforcement Learning}
+\textbf{Reinforcement Learning} creates probabilitic models that use \textit{state-action pairs} to determine a sequence of decisions to maximize a reward.
+
+\begin{figure}[h]
+  \centering
+\includegraphics[width=0.75\textwidth]{reinforcement_learning.png}
+\end{figure}
+\end{comment}
+
+% ---- Preliminaries ----
+\newpage
 \section{Preliminaries}
-\subsubsection{Data Manipulation}
+In this section, code will be provided where applicable.
+
+% -- Data Manipulation --
+\subsection{Data Manipulation}
+% - Getting Started -
+\subsubsection{Getting Started}
 \begin{itemize}
   \item A tensor represents a (possibly multi-dimensional) array of numerical values
   \begin{itemize}
     \item With one axis, a tensor is called a \textit{vector}
     \item With two axes, a tensor is called a \textit{matrix}
-    \item With $n > 2$ axes, we just call it a tensor
+    \item With $n > 2$ axes, we just call it a tensor and it is referred to as a $k^{\text{th}}$ order tensor for $k$ dimensions
   \end{itemize}
 \end{itemize}
 
+% - Vectors -
+\subsubsection{Vectors}
+Here is how you can create a column vector in pytorch.
+
+\vspace{6pt}
 \begin{python}
 # Library import
 import torch
 # Assign x to an array with 12 floats
 x = torch.arange([12, dtype=torch.float])
+x
+
+"""
+Returns:
+
+  tensor([0., 1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11.])
+"""
 \end{python}
+\vspace{6pt}
 
-\subsubsection{Linear Algebra}
-\subsubsection{Calculus}
-\subsubsection{Automatic Differentiation}
-\subsubsection{Probability and Statistics}
+The tensor \textbf{x} contains 12 elements.  We can determine the total number of elements in a tensor using the \textbf{numel} method.
+
+\vspace{6pt}
+\begin{python}
+x.numel()
+
+"""
+Returns:
+
+  12
+"""
+\end{python}
+\vspace{6pt}
+
+We can also determine the shape of a tensor by calling a tensor's \textbf{shape} method.
+
+\vspace{6pt}
+\begin{python}
+x.shape()
+
+"""
+Returns:
+
+  torch.Size([12])
+"""
+\end{python}
+\vspace{6pt}
+
+% - Matrices -
+\subsubsection{Matrices}
+We can change the shape of a tensor without altering its size or values by calling a tensor's \textbf{reshape} method.  For example, we can reshape a vector \textbf{x} whose shape is (12,) to a matrix \textbf{X} whos shape is (3, 4).  \textbf{X} retains all of the elements of \textbf{x}, but organizes them into a matrix.
+
+\newpage
+\vspace{6pt}
+\begin{python}
+X = x.reshape()
+X
+
+"""
+Returns:
+
+  tensor([[0., 1., 2., 3.],
+    [4., 5., 6., 7.],
+    [8., 9., 10. 11.]])
+"""
+\end{python}
+\vspace{6pt}
+
+Specifying each shape compoenent can be redundant, so we can work out one component and pytorch will infer the rest.  To automatically infer a component, we can place a $-1$ to the component that will be inferred.  In our example, instead of calling \textbf{x.reshape(3, 4)}, we can call \textbf{x.reshape(-1, 4)} or equivalently \textbf{x.reshape(3, -1)}
+
+% - Additional Functions -
+\subsubsection{Additional Functions}
+We can call the \textbf{torch.zeros} function to create a tensor of zeros.
+
+\vspace{6pt}
+\begin{python}
+torch.zeros((2, 3))
+
+"""
+Returns:
+
+  tensor([[0., 0., 0.],
+    [0., 0., 0.]])
+"""
+\end{python}
+\vspace{6pt}
+
+Likewise, we can call the \textbf{torch.zeros} function to create a tensor of ones.
+
+\vspace{6pt}
+\begin{python}
+torch.ones((3, 2))
+
+"""
+Returns:
+
+  tensor([[1., 1.],
+    [1., 1.],
+    [1., 1.]])
+"""
+\end{python}
+\vspace{6pt}
+
+% - Indexing and Slicing -
+\subsubsection{Indexing and Slicing}
+For this section, we will use the matrix \textbf{X} from our previous example
+
+\vspace{6pt}
+\begin{python}
+X
+
+"""
+Returns:
+
+  tensor([[0., 1., 2., 3.],
+    [4., 5., 6., 7.],
+    [8., 9., 10. 11.]])
+"""
+\end{python}
+\vspace{6pt}
+
+Similar to python lists, we can access tensor elements by indexing (starting with zero).  To access an element based on its position relative to the end of the list, we can use negative indexing.  We can access whole ranges of indices via slicing (e.g., \textbf{X[start:stop])}, where the returned value includes the first index \textbf{(start)} but not the last \textbf{(stop)}.
+
+\vspace{6pt}
+\begin{python}
+X[-1], X[1:3]
+
+"""
+Returns:
+
+  tensor([8., 9., 10. 11.]),
+  tensor([[4., 5., 6., 7.],
+    [8., 9., 10. 11.]])
+"""
+\end{python}
+\vspace{6pt}
+
+You can also reassign elements of a matrix by specifying indices.
+
+\vspace{6pt}
+\begin{python}
+X[1, 2] = 17
+X
+
+"""
+Returns:
+
+  tensor([8., 9., 10. 11.]),
+  tensor([[4., 5., 6., 7.],
+    [8., 9., 10. 11.]])
+"""
+\end{python}
+\vspace{6pt}
+
+Similarly
+
+\vspace{6pt}
+\begin{python}
+X[:2, :] = 12
+X
+
+"""
+Returns:
+
+  tensor([12., 12., 12. 12.]),
+    [12., 12., 12. 12.],
+    [8., 9., 10. 11.]])
+"""
+\end{python}
+\vspace{6pt}
+
+% - Operations -
+\subsubsection{Operations}
+We can calculate the exponential $e^{x}$ using \textbf{torch.exp(x)}.  Below are your common mathematical operations.
+
+\vspace{6pt}
+\begin{python}
+x = torch.tensor([1.0, 2, 4, 8])
+y = torch.tensor([2, 2, 2, 2])
+x + y , x - y, x * y, x / y, x ** y
+
+"""
+Returns:
+
+  (tensor([3., 4., 6., 10.]),
+    tensor(-1., 0., 2/, 6.]),
+    tensor([2., 4., 8., 16.]),
+    tensor([0.5000, 1.0000, 2.0000, 4.0000]),
+    tensor([1., 4., 16., 64.])
+    )
+"""
+\end{python}
+\vspace{6pt}
+
+We can also concatenate multiple tensors along a specific axis
+
+\vspace{6pt}
+\begin{python}
+X = torch.arange(12, dtype=torch.float32).reshape((3, 4))
+Y = torch.tensor([[2.0, 1, 4, 3],
+  [1, 2, 3, 4],
+  [4, 3, 2, 1]])
+torch.cat((X, Y), dim=0) # Join by row, this is similar to a SQL Union
+
+"""
+Returns:
+
+  tensor([0., 1., 2., 3.],
+    [4., 5., 6., 7.],
+    [8., 9., 10., 11.],
+    [2., 1., 4., 3.],
+    [1., 2., 3., 4.],
+    [4., 3., 2., 1.]])
+"""
+\end{python}
+\vspace{6pt}
+
+\vspace{6pt}
+\begin{python}
+X = torch.arange(12, dtype=torch.float32).reshape((3, 4))
+Y = torch.tensor([[2.0, 1, 4, 3],
+  [1, 2, 3, 4],
+  [4, 3, 2, 1]])
+torch.cat((X, Y), dim=0) # Join by row, this is similar to a SQL Union
+
+"""
+Returns:
+
+  tensor([0., 1., 2., 3., 2., 1., 4., 3.],
+    [4., 5., 6., 7., 8., 9., 10., 11.],
+    [1., 2., 3., 4., 4., 3., 2., 1.]])
+"""
+\end{python}
+\vspace{6pt}
+
+\subsection{Linear Algebra}
+After storing data into tensors and preprocessing them with basic mathematical operations, we need to user linear algebra to build our models.  In this section, we will provide an overview of some linear algebra topics.
+
+% - Scalars and Vectors -
+\subsubsection{Scalars and Vectors}
+A scalar is a tensor with only one element and are known as zero order tensors!  Like all other tensors, we can apply basic operations to it.
+
+\vspace{6pt}
+\begin{python}
+x = torch.tensor(3.0)
+y = torch.tensor(2.0)
+x + y, x * y, x / y, x**y
+
+"""
+Returns:
+
+  (tensor(5.), tensor(6.), tensor(1.5000), tensor(9.))
+"""
+\end{python}
+\vspace{6pt}
+
+\newpage
+When vectors represent examples from a dataset, their values hold some real-world significance.  For example, suppose we are studying heart attack risk, each vector might represent a patient and its components might correspond to their most recent vital signs (cholesterol levels, minutes of exercise per day, etc.).  Vectors are implemented as first order tensors.  Mathematically, we write vectors as \textit{column vectors}
+
+$$
+x = \begin{bmatrix}
+  x_{1} \\
+  \vdots \\
+  x_{n}
+\end{bmatrix}
+$$
+
+\vspace{6pt}
+\begin{python}
+x = torch.arange(3)
+x
+
+"""
+Returns:
+
+  tensor([0, 1, 2])
+"""
+\end{python}
+\vspace{6pt}
 
 
+
+% - Matrices -
+\subsubsection{Matrices}
+Matrices are second order tensors.  They can be written as 
+
+$$
+A = \begin{bmatrix}
+  a_{11} & a_{12} & \hdots & a_{1n} \\
+  a_{21} & a_{22} & \hdots & a_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  a_{m1} & a_{m2} & \hdots & a_{mn}
+\end{bmatrix}
+$$
+
+Matrix $A \in \mathbb{R}^{m \times n}$ is represented by a second order tensor with shape $(m, n)$.  $a_{ij}$ is the element belonging to the $i^{\text{th}}$ row and the $j^{\text{th}}$ column.
+
+We can also take the transpose of a matrix
+
+$$
+A = \begin{bmatrix}
+  a_{11} & a_{21} & \hdots & a_{m1} \\
+  a_{12} & a_{22} & \hdots & a_{m2} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  a_{1n} & a_{2n} & \hdots & a_{mn}
+\end{bmatrix}
+$$
+
+\vspace{6pt}
+\begin{python}
+A = torch.arange(6).reshape(3, 2)
+A.T
+
+"""
+Returns:
+
+  tensor([[0, 2, 4],
+    [1, 3, 5]])
+"""
+\end{python}
+\vspace{6pt}
+
+% - Tensors -
+\subsubsection{Tensors}
+Tensors give us a generic way to describe extentions to $n^{\text{th}}$ order arrays.  This becomes useful when we starting working with images.  Each image is organized as a third order tensor with axes corresponding to height, weight, color channel.  A collection of images then becomes a a fourth order tensor where each image are indexed along the first axis!  High order tensors are constructed similarly to vectors and matrices by growing the number of shape components
+
+\vspace{6pt}
+\begin{python}
+"""
+# This is a third order tensor.  Think of it as a collection of matrices
+"""
+torch.arange(24) = torch.arange(6).reshape(2, 3, 4)
+\end{python}
+\vspace{6pt}
+
+% - Tensor Operations -
+\subsubsection{Tensor Operations}
+We can apply element wise operations against tensor elements.
+
+\vspace{6pt}
+\begin{python}
+A = torch.ones((2, 2))
+B = A.clone() # A deep copy of tensor A
+A, A + B
+
+"""
+Returns:
+  (tensor([[1, 1], 
+    [1, 1]]),
+  tensor([[2, 2],
+    [2, 2]]))
+"""
+\end{python}
+\vspace{6pt}
+
+The elementwise product of two matrices is called a \textbf{Hadamard Product} (denoted as $\odot$)
+
+$$
+A \odot B = \begin{bmatrix}
+  a_{11}b_{11} & a_{12}b_{12} & \hdots & a_{1n}b_{1n} \\
+  a_{21}b_{21} & a_{22}b_{22} & \hdots & a_{2n}b_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  a_{m1}b_{m1} & a_{m2}b_{m2} & \hdots & a_{mn}b_{mn}
+\end{bmatrix}
+$$
+
+\vspace{6pt}
+\begin{python}
+C = A + B
+A * C
+
+"""
+Returns:
+  tensor([[2, 2], 
+    [2, 2]]),
+"""
+\end{python}
+\vspace{6pt}
+
+Adding or multiplying a scalar by any other tensor creates a result with the same shape as the original tensor.  Each element in the resultant tensor is added or multipled by the scalar.
+
+\vspace{6pt}
+\begin{python}
+a = 2
+X = torch.ones((2, 2))
+a + X, (a * X).shape
+
+"""
+Returns:
+  (tensor([[3, 3],
+    [3, 3]]),
+  torch.Size([2, 2]))
+"""
+\end{python}
+\vspace{6pt}
+
+% - Reduction -
+\subsubsection{Reduction}
+There are a lot of times where we want to calculate the sum of a tensor's elements.  We express the sum of elements in a vector $x$ of length $n$ as
+
+$$
+\sum_{i=1}^{n}{x_{i}}
+$$
+
+\vspace{6pt}
+\begin{python}
+x = torch.arange(3, dtype=torch.float32)
+x, x.sum()
+
+"""
+Returns:
+  (tensor([0., 1., 2.]), tensor(3.))
+"""
+\end{python}
+\vspace{6pt}
+
+To express sums over elements of tensors of arbitrary shape, we simply sum over all of the axies.  For example, the sum of elements of an $x \times n$ matrix $A$ could be written as
+
+$$
+\sum_{i=1}^{m}\sum_{j=1}^{n}{a_{ij}} \qquad \text{for row i and column j}
+$$
+
+\vspace{6pt}
+\begin{python}
+x = torch.ones((2, 2))
+x.shape, x.sum()
+
+"""
+Returns:
+  (torch.Size([2, 2]), tensor(8.))
+"""
+\end{python}
+\vspace{6pt}
+
+% - Dot Products -
+\subsubsection{Dot Products}
+
+% - Matrix-Vector Products -
+\subsubsection{Matrix-Vector Products}
+
+% - Matrix-Matrix Products -
+\subsubsection{Matrix-Matrix Products}
+
+% - Norms -
+\subsubsection{Norms}
+
+
+\subsection{Calculus}
+% - Differentiation -
+\subsubsection{Differentiation}
+% - Partial Derivatives and Gradients -
+\subsubsection{Partial Derivatives and Gradients}
+% - Notations and Common Functions -
+\subsubsection{Notations and Common Functions}
+\subsection{Probability and Statistics}
+% - Random Variables -
+\subsubsection{Random Variables}
+
+
+\begin{comment}
 % ---- Linear Neural Networks for Regression ----
 \section{Linear Neural Networks for Regression}
+% -- The Model --
+\subsection{The Model}
+% -- The Model --
+\subsection{The Loss Function}
+% -- Optimization --
+\subsection{Optimization}
+% -- Training --
+\subsection{Training}
 
+
+\begin{comment}
 % ---- SLIDE DECK 2 ----
 % ---- Multiple Layer Perceptron (MLP) ----
 \section{Multiple Layer Perceptron (MLP)}
@@ -162,9 +724,8 @@ You must understand the following performance metrics
 \end{itemize}
 
 % ----  ----
-\section{}
+\section{test}
 
-\begin{comment}
 % ---- REFERENCES ----
 All references are in MLA 9TH Gen
 \newpage
